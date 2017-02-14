@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="worker.features" 
+	xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0"> 
+
+    <repository>mvn:org.apache.camel.karaf/apache-camel/${camel.version}/xml/features</repository>
+
+    <feature name='worker-feature' version='${project.version}'>
+		<feature prerequisite="true">wrap</feature>
+     	<feature>scr</feature>
+     
+ 		<feature version="[${camel.version},${camel.version.max})">camel-blueprint</feature>
+    	<feature version="[${camel.version},${camel.version.max})">camel-quartz2</feature>
+    	
+        <bundle>mvn:${project.groupId}/blueprint-ds-config-reload/${project.version}</bundle>
+    </feature>
+</features>
